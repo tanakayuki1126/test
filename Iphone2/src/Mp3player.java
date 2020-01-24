@@ -1,5 +1,5 @@
 
-public interface Mp3player {
+public interface Mp3Player {
 
 	public abstract void play();
 
