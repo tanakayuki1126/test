@@ -1,13 +1,14 @@
-package src;
+package jp.co.internous.action;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class DBConnector {
-	private static String driverName ="com.mysql.jdbc.Driver";
+	private static String driverName = "com.mysql.jdbc.Driver";
 
 	private static String url =
-			"jdbc:mysql://localhost/testdb?autoReconnect=true&useSSL=false";
+			"jdbc:mysql://localhost/testdb01?autoReconnect=true&useSSL=false";
 
 		private static String user = "com.mysql.jdbc.Driver";
 		private static String password  = "mysql";
