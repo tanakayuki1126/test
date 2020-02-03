@@ -5,18 +5,19 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-	public class TestUserDAO {
-	String name="";
-	String password="";
+public class TestUserDAO {
+
+	String name= "";
+	String password= "";
 	public void select(String name,String password) {
 		DBConnector db = new DBConnector();
-		Connection con = db.getConnnection();
+		Connection con = db.getConnection();
 
 		String sql ="select*from test_table where user_name=? and password=?";
 		try {
 			PreparedStatement ps = con.prepareStatement(sql);
-			ps.setString(1,name);
-			ps.setString(2,password);
+			ps.setString(1, name);
+			ps.setString(2, password);
 			ResultSet rs =ps.executeQuery();
 			if(rs.next()) {
 				System.out.println(rs.getString("user_name"));
@@ -31,6 +32,7 @@ import java.sql.SQLException;
 		e.printStackTrace();
 		}
 	}
+}
 
 
 	public void selectAll() {
@@ -63,7 +65,7 @@ import java.sql.SQLException;
 		String sql = "select * from test_table where user_name=?";
 		try{
 			PreparedStatement ps = con.prepareStatement(sql);
-			ps.setString(1,name);
+			ps.setString(1, name);
 			ResultSet rs =ps.executeQuery();
 			while(rs.next()){
 				System.out.println(rs.getString("user_name"));
@@ -86,7 +88,7 @@ import java.sql.SQLException;
 		String sql = "select * from test_table where password=?";
 		try{
 		PreparedStatement ps = con.prepareStatement(sql);
-		ps.setString(1,password);
+		ps.setString(1, password);
 		ResultSet rs =ps.executeQuery();
 		while(rs.next()){
 			System.out.println(rs.getString("user_name"));
@@ -109,11 +111,11 @@ import java.sql.SQLException;
 		String sql = "update test_table set user_name=? where user_name=?";
 		try{
 		PreparedStatement ps = con.prepareStatement(sql);
-		ps.setString(1,newName);
-		ps.setString(2,oldName);
+		ps.setString(1, newName);
+		ps.setString(2, oldName);
 		int i = ps.executeUpdate();
 		if (i>0){
-			System.out.println(i+"件更新されました");
+			System.out.println(i + "件更新されました");
 			System.out.println("該当するデータはありませんでした");
 		 }
 		}catch(SQLException e){
@@ -138,7 +140,7 @@ import java.sql.SQLException;
 		ps.setString(3, password);
 		int i =ps.executeUpdate();
 		if (i>0){
-			System.out.println(i+"件登録されました");
+			System.out.println(i + "件登録されました");
 		 }
 		}catch(SQLException e){
 		 e.printStackTrace();
@@ -162,7 +164,7 @@ import java.sql.SQLException;
 		ps.setString(1, name);
 		int i =ps.executeUpdate();
 		if (i>0){
-			System.out.println(i+"件削除されました");
+			System.out.println(i + "件削除されました");
 		 }
 		}catch(SQLException e){
 		 e.printStackTrace();
