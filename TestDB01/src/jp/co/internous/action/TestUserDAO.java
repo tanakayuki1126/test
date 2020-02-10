@@ -25,19 +25,19 @@ public class TestUserDAO {
 			}
 		}catch(SQLException e) {
 		 e.printStackTrace();
-		}
+
+	}
 	try {
 		 con.close();
 		}catch(SQLException e) {
 		e.printStackTrace();
 		}
 	}
-}
 
 
 	public void selectAll() {
 		DBConnector db =new DBConnector();
-		Connection con = db.getConnnection();
+		Connection con = db.getConnection();
 
 		String sql="select*from test_table";
 		try {
@@ -59,7 +59,7 @@ public class TestUserDAO {
 
 	public void selectByName(String name){
 		DBConnector db = new DBConnector();
-		Connection con = db.getConnnection();
+		Connection con = db.getConnection();
 
 
 		String sql = "select * from test_table where user_name=?";
@@ -82,7 +82,7 @@ public class TestUserDAO {
 	}
 	public void selectByPassword(String password){
 		DBConnector db = new DBConnector();
-		Connection con = db.getConnnection();
+		Connection con = db.getConnection();
 
 
 		String sql = "select * from test_table where password=?";
@@ -105,7 +105,7 @@ public class TestUserDAO {
 		}
 	public void updateUserNameByUserName(String oldName,String newName){
 		DBConnector db = new DBConnector();
-		Connection con = db.getConnnection();
+		Connection con = db.getConnection();
 
 
 		String sql = "update test_table set user_name=? where user_name=?";
@@ -130,7 +130,7 @@ public class TestUserDAO {
 
 	public void insert(int user_id,String name,String password){
 		DBConnector db = new DBConnector();
-		Connection con = db.getConnnection();
+		Connection con = db.getConnection();
 
 		String sql = "insert into test_table values(?,?,?)";
 		try{
@@ -155,7 +155,7 @@ public class TestUserDAO {
 
 	public void delete(String name){
 		DBConnector db = new DBConnector();
-		Connection con = db.getConnnection();
+		Connection con = db.getConnection();
 
 
 		String sql = "delete from test_table where user_name=?";
