@@ -9,7 +9,7 @@
 <body>
 
 <button onClick="location.href='HelloServlet';">HelloServlet</button>
-<button onClick="location.href='welcome.jsp;">Welcome</button>
+<button onClick="location.href='welcome.jsp';">Welcome</button>
 
 </body>
 </html>

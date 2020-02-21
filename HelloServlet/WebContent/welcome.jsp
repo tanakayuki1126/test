@@ -11,6 +11,7 @@
 名前を入力してください。
 <form method="post" action="WelcomeServlet">
 	<input type="text" name="username">
+
 	<input type="submit" value="送信">
 </form>
 
