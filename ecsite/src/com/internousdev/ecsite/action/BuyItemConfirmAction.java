@@ -8,11 +8,11 @@ import org.apache.struts2.interceptor.SessionAware;
 import com.internousdev.ecsite.dao.BuyItemCompleteDAO;
 import com.opensymphony.xwork2.ActionSupport;
 
-public class BuyItemConfirmAction extends ActionSupport implements SessionAware {
-		private Map<String, Object> session;
+public class BuyItemConfirmAction extends ActionSupport implements SessionAware{
+		private Map<String,Object> session;
 		private BuyItemCompleteDAO buyItemCompleteDAO = new BuyItemCompleteDAO();
 
-		public String execute() throws SQLException {
+		public String execute() throws SQLException{
 				buyItemCompleteDAO.buyItemInfo(
 								session.get("id").toString(),
 								session.get("total_price").toString(),
@@ -23,11 +23,11 @@ public class BuyItemConfirmAction extends ActionSupport implements SessionAware 
 				String result = SUCCESS;
 				return result;
 		}
-		public Map<String, Object> getSession() {
+		public Map<String,Object> getSession(){
 				return this.session;
 		}
 		@Override
-		public void setSession(Map<String, Object> session) {
+		public void setSession(Map<String,Object> session){
 				this.session = session;
 		}
 }

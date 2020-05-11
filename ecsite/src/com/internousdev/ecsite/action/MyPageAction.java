@@ -18,21 +18,23 @@ public class MyPageAction extends ActionSupport implements SessionAware {
 		private String deleteFlg;
 		private String message;
 
-public String execute() throws SQLException {
+public String execute() throws SQLException{
 		if (!session.containsKey ("login_user_id")) {
-					return ERROR;
-		}
-		if(deleteFlg == null) {
+				return ERROR;
+			}
+
+		if(deleteFlg == null){
 			String item_transaction_id = session.get("id").toString();
 			String user_master_id = session.get("login_user_id").toString();
 			myPageList = myPageDAO.getMyPageUserInfo(item_transaction_id, user_master_id);
-		} else if(deleteFlg.equals("1")) {
+		} else if(deleteFlg.equals("1")){
 							delete();
 				}
 					String result = SUCCESS;
 					return result;
 			}
-		public void delete() throws SQLException {
+		public void delete() throws SQLException{
+
 			String item_transaction_id = session.get("id").toString();
 			String user_master_id = session.get("login_user_id").toString();
 
@@ -45,23 +47,23 @@ public String execute() throws SQLException {
 					setMessage("商品情報の削除に失敗しました。");
 			}
 		}
-		public void setDeleteFlg(String deleteFlg) {
+		public void setDeleteFlg(String deleteFlg){
 			this.deleteFlg = deleteFlg;
 		}
-		public ArrayList<MyPageDTO> getMyPageList() {
+		public ArrayList<MyPageDTO> getMyPageList(){
 				return this.myPageList;
 		}
-		public String getMessage() {
+		public String getMessage(){
 				return this.message;
 		}
-		public void setMessage(String message) {
+		public void setMessage(String message){
 				this.message = message;
 		}
-		public Map<String, Object> getSession() {
+		public Map<String,Object> getSession(){
 				return this.session;
 				}
 		@Override
-		public void setSession(Map<String, Object> session) {
-		this.session = session;
+		public void setSession(Map<String,Object> session) {
+				this.session = session;
 		}
 }
